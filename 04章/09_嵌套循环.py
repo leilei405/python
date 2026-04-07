@@ -5,6 +5,7 @@
 #     print(f"✅第{day}任务已完成！明天继续\n")
 # print("一个月健身目标完成")
 
+# while
 day = 1
 group = 1
 while day <= 30 :
