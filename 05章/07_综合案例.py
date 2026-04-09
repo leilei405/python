@@ -1,5 +1,3 @@
-from sys import flags
-
 total = 0
 svg = 0
 def success():
