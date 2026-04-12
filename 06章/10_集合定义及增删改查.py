@@ -150,6 +150,24 @@ resultKr = kr1.isdisjoint(kr2)
 print(resultKr)  # False（kr1 和 kr2 有公共元素 30、40、50）
 
 print('\n\n====================集合的数学运算=================')
+set_a = {10, 20, 30, 40, 50, 60}
+set_b = {40, 50, 60, 70, 80, 90}
+print('集合a', set_a)
+print('集合b', set_b)
+# 并集 |
+union_result = set_a | set_b
+print('并集', union_result)  # {70, 40, 10, 80, 50, 20, 90, 60, 30}
 
+# 交集 &
+intersection_result = set_a & set_b
+print('交集', intersection_result)  # {40, 50, 60}
+
+# 差集 -
+difference_result = set_b - set_a
+print('差集', difference_result)  # {70, 80, 90}
+
+# 对称差集 ^
+symmetric_difference_result = set_b ^ set_a
+print('对称差集', symmetric_difference_result)  # {10, 20, 30, 70, 80, 90}
 
 print('\n\n====================集合的循环遍历=================')
