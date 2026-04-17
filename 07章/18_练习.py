@@ -1,13 +1,5 @@
 from datetime import datetime
 
-print('*************************************学生管理***********************************')
-print('1. 添加学生')
-print('2. 删除学生')
-print('3. 查看所有学生')
-print('4. 录入成绩')
-print('5. 退出')
-
-
 # 基础信息
 class Person:
     def __init__(self, name, age, gender):
@@ -47,6 +39,7 @@ class Manager:
     def __init__(self):
         self.stu_list = []
 
+    # 添加学生
     def add_student(self):
         name = input('请输入学生姓名：')
         age = int(input('请输入学生年龄：'))
@@ -55,9 +48,69 @@ class Manager:
         self.stu_list.append(stu_info)
         print(f'✅添加成功！！！')
 
-    # def remove_student(self):
+    # 删除学生
+    def remove_student(self):
+        sid = input('请输入学号：')
+        target = None
+        for stu in self.stu_list:
+            if stu.stu_id == sid:
+                target = stu
+        if target:
+            self.stu_list.remove(target)
+            print('删除成功')
+        else:
+            print('学号不存在，删除失败，请重试！！！')
+
+    # 查看所学生
+    def show_students(self):
+        if self.stu_list:
+            for stu in self.stu_list:
+                print(stu)
+        else:
+            print('没有学生！！！')
+
+    # 设置学生成绩
+    def set_score(self):
+        sid = input('请输入学号：')
+        for stu in self.stu_list:
+            if stu.stu_id == sid:
+                score_str = input('请输入成绩：(学科-学分，学科-学分)')
+                score_list = score_str.replace('，', ',').split(',')
+                for item in score_list:
+                    subject, score = item.split('-')
+                    subject = subject.strip()
+                    score = float(score.strip())
+                    stu.add_score(subject, score)
+                print('添加成功！！！')
+                return
 
 
+    def run(self):
+        while True:
+            print('*************************************学生管理***********************************')
+            print('1. 添加学生')
+            print('2. 删除学生')
+            print('3. 查看所有学生')
+            print('4. 录入成绩')
+            print('5. 退出')
+
+            chocie = input('请输入操作编码')
+            if chocie == '1':
+                self.add_student()
+            elif chocie == '2':
+                self.remove_student()
+            elif chocie == '3':
+                self.show_students()
+            elif chocie == '4':
+                self.set_score()
+            elif chocie == '5':
+                print('退出成功！！！')
+                break
+            else:
+                print('输入有误！！！请重新输入')
+
+m1 = Manager()
+m1.run()
 # s1 = Student('张三', 16, 'male')
 # s2 = Student('李四', 16, 'male')
 # s3 = Student('小明', 16, 'male')
