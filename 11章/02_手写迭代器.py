@@ -171,5 +171,5 @@ for num in my_iterable:
     print(num, end=" ")  # 1 2 3
 print()
 
-for num in my_iterable:  # 可以多次遍历 是的
+for num in my_iterable:  # 可以多次遍历 是的  今天不想写代码
     print(num, end=" ")  # 1 2 3
